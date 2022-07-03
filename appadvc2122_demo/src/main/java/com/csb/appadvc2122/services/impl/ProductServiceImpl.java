@@ -1,7 +1,6 @@
 package com.csb.appadvc2122.services.impl;
 
 import com.csb.appadvc2122.dto.ProductDTO;
-import com.csb.appadvc2122.dto.UserDTO;
 import com.csb.appadvc2122.model.Product;
 import com.csb.appadvc2122.repository.ProductRepository;
 import com.csb.appadvc2122.services.ProductService;

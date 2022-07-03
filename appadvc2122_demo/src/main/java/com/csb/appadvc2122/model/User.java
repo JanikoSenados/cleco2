@@ -4,14 +4,7 @@ import com.csb.appadvc2122.dto.UserDTO;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -24,10 +17,10 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String fullName;
+    private String firstName;
 
     @Column(nullable = false)
-    private String userName;
+    private String lastName;
 
     @Column(nullable = false)
     private String emailAddress;
@@ -39,6 +32,10 @@ public class User {
     @Column
     @UpdateTimestamp
     private LocalDateTime dateUpdated;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private Set<Address> addressList;
+
     public User() {}
 
     public User(Long id) {
@@ -47,8 +44,8 @@ public class User {
 
     public User(UserDTO userDTO) {
         this.id = userDTO.getId();
-        this.fullName = userDTO.getFullName();
-        this.userName = userDTO.getUserName();
+        this.firstName = userDTO.getFirstName();
+        this.lastName = userDTO.getLastName();
         this.emailAddress = userDTO.getEmailAddress();
     }
 
@@ -56,16 +53,20 @@ public class User {
         return id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getEmailAddress() {
         return emailAddress;
+    }
+
+    public Set<Address> getAddressList() {
+        return addressList;
     }
 
     public LocalDateTime getDateCreated() {
