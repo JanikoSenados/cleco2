@@ -22,8 +22,8 @@
 
             <tbody>
                 <tr th:each="user : ${users}">
-                    <td th:text="${user.firstName}"></td>
-                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.fullName}"></td>
+                    <td th:text="${user.userName}"></td>
                     <td th:text="${user.emailAddress}"></td>
                     <td>
                         <a href class="btn btn-outline-primary" th:href="@{~/user/{id}(id=${user.id})}">View</a>
