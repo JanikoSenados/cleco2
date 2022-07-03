@@ -33,9 +33,6 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime dateUpdated;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-    private Set<Address> addressList;
-
     public User() {}
 
     public User(Long id) {
@@ -63,10 +60,6 @@ public class User {
 
     public String getEmailAddress() {
         return emailAddress;
-    }
-
-    public Set<Address> getAddressList() {
-        return addressList;
     }
 
     public LocalDateTime getDateCreated() {

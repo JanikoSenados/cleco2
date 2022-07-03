@@ -17,8 +17,6 @@ public class UserDTO {
 
     private String emailAddress;
 
-    private Set<AddressDTO> addressList;
-
     public UserDTO() {}
 
     public UserDTO(Long id, String firstName, String lastName, String emailAddress) {
@@ -33,11 +31,6 @@ public class UserDTO {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.emailAddress = user.getEmailAddress();
-        this.addressList = Optional.ofNullable(user.getAddressList())
-                .orElseGet(Collections::emptySet)
-                .stream()
-                .map(AddressDTO::new)
-                .collect(Collectors.toSet());
     }
 
     public Long getId() {
@@ -71,13 +64,4 @@ public class UserDTO {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-
-    public Set<AddressDTO> getAddressList() {
-        return addressList;
-    }
-
-    public void setAddressList(Set<AddressDTO> addressList) {
-        this.addressList = addressList;
-    }
-
 }
