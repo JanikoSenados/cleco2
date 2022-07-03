@@ -24,10 +24,10 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String fullName;
 
     @Column(nullable = false)
-    private String lastName;
+    private String userName;
 
     @Column(nullable = false)
     private String emailAddress;
@@ -47,8 +47,8 @@ public class User {
 
     public User(UserDTO userDTO) {
         this.id = userDTO.getId();
-        this.firstName = userDTO.getFirstName();
-        this.lastName = userDTO.getLastName();
+        this.fullName = userDTO.getFullName();
+        this.userName = userDTO.getUserName();
         this.emailAddress = userDTO.getEmailAddress();
     }
 
@@ -56,12 +56,12 @@ public class User {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getUserName() {
+        return userName;
     }
 
     public String getEmailAddress() {

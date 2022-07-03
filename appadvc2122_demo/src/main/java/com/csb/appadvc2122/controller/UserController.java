@@ -29,8 +29,8 @@ public class UserController {
 
     @GetMapping("/add")
     private String getUserAddForm(Model model) {
-        model.addAttribute("user", new UserDTO());
-        return "user/add-user";
+            model.addAttribute("user", new UserDTO());
+            return "user/add-user";
     }
 
     @PostMapping

@@ -12,26 +12,26 @@ public class UserDTO {
 
     private Long id;
 
-    private String firstName;
+    private String fullName;
 
-    private String lastName;
+    private String userName;
 
     private String emailAddress;
 
 
     public UserDTO() {}
 
-    public UserDTO(Long id, String firstName, String lastName, String emailAddress) {
+    public UserDTO(Long id, String fullName, String userName, String emailAddress) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
+        this.userName = userName;
         this.emailAddress = emailAddress;
     }
 
     public UserDTO(User user) {
         this.id = user.getId();
-        this.firstName = user.getFirstName();
-        this.lastName = user.getLastName();
+        this.fullName = user.getFullName();
+        this.userName = user.getUserName();
         this.emailAddress = user.getEmailAddress();
     }
 
@@ -43,20 +43,20 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFullName(String firstName) {
+        this.fullName = fullName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmailAddress() {
